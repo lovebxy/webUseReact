@@ -1,4 +1,5 @@
 const path = require('path')
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 console.log(path.join(__dirname,'/dist'))
 
@@ -22,12 +23,25 @@ module.exports = {
                 }
             },{
                 test:/\.less$/,
-                use:[
-                    'style-loader',
-                    'css-loader',
-                    'less-loader'
-                    ]
+                use: [
+                    {
+                      loader: "style-loader",
+                    },
+                    {
+                      loader: "css-loader",
+                     
+                    },
+                    {
+                      loader: "less-loader",
+                      
+                    },
+                  ],
             }
         ]
-    }
+    },
+    // plugins:[
+    //     new HtmlWebpackPlugin({
+    //         template:'./src/index.html'
+    //     })
+    // ]
 }
